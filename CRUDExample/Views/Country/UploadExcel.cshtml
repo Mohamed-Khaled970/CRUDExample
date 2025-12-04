@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Upload Countries Excel";
+}
+
+<div class="upload-section">
+
+    <h2>Upload Countries Excel</h2>
+
+    <form asp-controller="Countries"
+          asp-action="UploadExcel"
+          enctype="multipart/form-data"
+          method="post">
+
+        <label>Choose Excel File (.xlsx)</label>
+        <input type="file" name="excelFile" accept=".xlsx" required class="upload-input" />
+
+        <button type="submit" class="upload-btn">Upload</button>
+    </form>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="error-box">@ViewBag.ErrorMessage</div>
+    }
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="success-box">@ViewBag.Message</div>
+    }
+
+</div>

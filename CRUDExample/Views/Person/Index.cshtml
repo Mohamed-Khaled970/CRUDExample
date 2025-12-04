@@ -1,0 +1,145 @@
+﻿@model IEnumerable<PersonResponse>
+
+@{
+    ViewData["Title"] = "Persons List";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="toast" class="success-toast">
+        @TempData["SuccessMessage"]
+    </div>
+
+    <script>
+        const toast = document.getElementById("toast");
+        setTimeout(() => {
+            toast.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    </script>
+}
+
+<section class="persons-section">
+    <div class="header-bar">
+        <h2>All Persons</h2>
+        <div class="btn-group">
+            <a class="btn-add" asp-controller="Person" asp-action="Add">+ Add New Person</a>
+            <a class="btn-download" asp-controller="Person" asp-action="DownloadPdf">
+                Download PDF
+            </a>
+            <a class="btn-CSV csv" asp-controller="Person" asp-action="DownloadCSV">
+                Download CSV
+            </a>
+
+            <a class="btn-CSV excel" asp-controller="Person" asp-action="DownloadExcel">
+                Download Excel
+            </a>
+
+
+        </div>
+    </div>
+
+    <!-- 🔍 Search Form -->
+    <form method="get" asp-controller="Person" asp-action="Index" class="search-form">
+        <div class="search-container">
+            <select name="searchProperty" class="search-select">
+                <option value="">-- Select Property --</option>
+                <option value="Name" selected="@(ViewBag.CurrentSearchProperty == "Name")">Name</option>
+                <option value="DateOfBirth" selected="@(ViewBag.CurrentSearchProperty == "DateOfBirth")">Date of Birth</option>
+                <option value="Address" selected="@(ViewBag.CurrentSearchProperty == "Address")">Address</option>
+                <option value="PhoneNumber" selected="@(ViewBag.CurrentSearchProperty == "PhoneNumber")">Phone Number</option>
+                <option value="Id" selected="@(ViewBag.CurrentSearchProperty == "Id")">Id</option>
+            </select>
+
+            <input type="text" name="searchTerm" class="search-input" placeholder="Enter search term..." value="@ViewBag.CurrentSearchTerm" />
+
+            <button type="submit" class="btn-search">Search</button>
+            <a href="/" class="btn-clear">Clear All</a>
+        </div>
+    </form>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="no-data">No persons found 😔</div>
+    }
+    else
+    {
+        <table class="persons-table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-searchProperty="@ViewBag.CurrentSearchProperty"
+                           asp-route-searchTerm="@ViewBag.CurrentSearchTerm"
+                           asp-route-sortBy="Name"
+                           asp-route-orderOptions="@(ViewBag.CurrentSortBy == "Name" && ViewBag.CurrentOrder == OrderOptions.ASC ? OrderOptions.DESC : OrderOptions.ASC)">
+                            Name
+                            @(ViewBag.CurrentSortBy == "Name" ? (ViewBag.CurrentOrder == OrderOptions.ASC ? "↑" : "↓") : "")
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-searchProperty="@ViewBag.CurrentSearchProperty"
+                           asp-route-searchTerm="@ViewBag.CurrentSearchTerm"
+                           asp-route-sortBy="DateOfBirth"
+                           asp-route-orderOptions="@(ViewBag.CurrentSortBy == "DateOfBirth" && ViewBag.CurrentOrder == OrderOptions.ASC ? OrderOptions.DESC : OrderOptions.ASC)">
+                            Date of Birth
+                            @(ViewBag.CurrentSortBy == "DateOfBirth" ? (ViewBag.CurrentOrder == OrderOptions.ASC ? "↑" : "↓") : "")
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-searchProperty="@ViewBag.CurrentSearchProperty"
+                           asp-route-searchTerm="@ViewBag.CurrentSearchTerm"
+                           asp-route-sortBy="Country"
+                           asp-route-orderOptions="@(ViewBag.CurrentSortBy == "Country" && ViewBag.CurrentOrder == OrderOptions.ASC ? OrderOptions.DESC : OrderOptions.ASC)">
+                            Country
+                            @(ViewBag.CurrentSortBy == "Country" ? (ViewBag.CurrentOrder == OrderOptions.ASC ? "↑" : "↓") : "")
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-searchProperty="@ViewBag.CurrentSearchProperty"
+                           asp-route-searchTerm="@ViewBag.CurrentSearchTerm"
+                           asp-route-sortBy="PhoneNumber"
+                           asp-route-orderOptions="@(ViewBag.CurrentSortBy == "PhoneNumber" && ViewBag.CurrentOrder == OrderOptions.ASC ? OrderOptions.DESC : OrderOptions.ASC)">
+                            Phone
+                            @(ViewBag.CurrentSortBy == "PhoneNumber" ? (ViewBag.CurrentOrder == OrderOptions.ASC ? "↑" : "↓") : "")
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-action="Index"
+                           asp-route-searchProperty="@ViewBag.CurrentSearchProperty"
+                           asp-route-searchTerm="@ViewBag.CurrentSearchTerm"
+                           asp-route-sortBy="Address"
+                           asp-route-orderOptions="@(ViewBag.CurrentSortBy == "Address" && ViewBag.CurrentOrder == OrderOptions.ASC ? OrderOptions.DESC : OrderOptions.ASC)">
+                            Address
+                            @(ViewBag.CurrentSortBy == "Address" ? (ViewBag.CurrentOrder == OrderOptions.ASC ? "↑" : "↓") : "")
+                        </a>
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in Model)
+                {
+                    <tr>
+                        <td>@person.Name</td>
+                        <td>@person.DateOfBirth.ToString("yyyy-MM-dd")</td>
+                        <td>@person.Country</td>
+                        <td>@person.PhoneNumber</td>
+                        <td>@person.Address</td>
+                        <td class="actions">
+                            <a class="btn-view" asp-controller="Person" asp-action="Details" asp-route-id="@person.Id">View</a>
+                            <a class="btn-edit" asp-controller="Person" asp-action="Edit" asp-route-id="@person.Id">Edit</a>
+                            <a class="btn-delete" asp-controller="Person" asp-action="Delete" asp-route-id="@person.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</section>

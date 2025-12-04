@@ -1,0 +1,22 @@
+﻿@model PersonResponse
+@{
+    ViewData["Title"] = "Delete Person";
+}
+
+<section class="delete-section">
+    <h2>Are you sure you want to delete this person?</h2>
+
+    <div class="delete-box">
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Phone:</strong> @Model.PhoneNumber</p>
+        <p><strong>Country:</strong> @Model.Country</p>
+        <p><strong>Address:</strong> @Model.Address</p>
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        <button type="submit" class="btn-delete-confirm">Yes, Delete</button>
+        <a asp-action="Index" class="btn-cancel">Cancel</a>
+    </form>
+</section>

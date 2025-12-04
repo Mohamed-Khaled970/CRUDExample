@@ -1,0 +1,53 @@
+﻿@model AddPersonRequest
+@{
+    ViewData["Title"] = "Add New Person";
+}
+
+<section class="form-section">
+    <h2>Add New Person</h2>
+
+    <form asp-action="Add" method="post" class="add-form">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" placeholder="Enter full name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" type="date" class="form-control" />
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CountryId">Country</label>
+            <select asp-for="CountryId" class="form-control" asp-items="ViewBag.Countries">
+                <option value="">-- Select Country --</option>
+            </select>
+            <span asp-validation-for="CountryId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Enter phone number" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter address..."></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn-primary">Add Person</button>
+            <a asp-controller="Person" asp-action="Index" class="btn-secondary">
+                ← Back to List
+            </a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

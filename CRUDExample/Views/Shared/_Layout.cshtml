@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC CRUD App</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <img src="~/logo.png" asp-append-version="true" alt="Logo" class="logo-img" />
+                <div class="logo">CRUD App</div>
+                <ul class="nav-links">
+                    <li><a asp-controller="Person" asp-action="Index">Persons</a></li>
+                    <li><a asp-controller="Country" asp-action="UploadExcel">Countries</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - MVC CRUD Project by Mohamed Khaled</p>
+    </footer>
+</body>
+
+@RenderSection("Scripts", required: false)
+</html>
