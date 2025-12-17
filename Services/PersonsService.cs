@@ -9,17 +9,16 @@ using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
 using OfficeOpenXml;
+using RepositoryContracts;
 
 namespace Services
 {
     public class PersonsService : IPersonsService
     {
-        private readonly ICountriesService _countriesService;
-        private readonly ApplicationDbContext _context;
-        public PersonsService(ICountriesService countriesService, ApplicationDbContext context )
+        private readonly IPersonsRepository _personsRepository;
+        public PersonsService(IPersonsRepository personsRepository)
         {
-             _countriesService = countriesService;
-             _context = context;
+            _personsRepository  = personsRepository;    
         }
         public async Task<PersonResponse> AddPerson(AddPersonRequest? request)
         {
@@ -32,13 +31,9 @@ namespace Services
 
             Person person = request.ToPerson();
             person.Id = id;
-            await _context.Persons.AddAsync(person);
+            await _personsRepository.AddPerson(person);
 
             PersonResponse response = person.ToPersonResponse();
-
-           await _context.SaveChangesAsync();
-
-
             return response;
 
         }
@@ -48,10 +43,10 @@ namespace Services
         public async Task<List<PersonResponse>?> GetAllPersons()
         {
 
-            if (await _context.Persons.CountAsync() < 0)
-                return null;
+            var allPersons = await _personsRepository.GetAllPersons();
 
-            var allPersons = await _context.Persons.Include("Country").ToListAsync();
+            if (allPersons.Count() == 0)
+                return null;
 
             return allPersons.Select(person => person.ToPersonResponse()).ToList();
         }
@@ -62,7 +57,7 @@ namespace Services
                 return null;
 
             Person? person
-                = await _context.Persons.FirstOrDefaultAsync(person => person.Id == id);
+                = await _personsRepository.GetPersonByPersonID(id.Value);
 
             if (person == null)
                 return null;
@@ -72,7 +67,8 @@ namespace Services
 
         public async Task<List<PersonResponse>> Search(string searchProperty, string searchTerm)
         {
-            var allPersons  = await _context.Persons.Include("Country").ToListAsync();
+            var allPersons = await _personsRepository.GetAllPersons();
+
 
             if (string.IsNullOrEmpty(searchProperty) || string.IsNullOrEmpty(searchTerm))
             {
@@ -208,19 +204,19 @@ namespace Services
  
             ValidatorHelper.ValidateModel(request);
 
-            var person = await _context.Persons.FirstOrDefaultAsync(x => x.Id == request.PersonID);
+            var person = await _personsRepository.GetPersonByPersonID(request.PersonID);
 
             if (person is null)
                 throw new ArgumentException("Person is not Found ");
 
-            person.Name = request.Name!;
+            person.Address = request.Address!;
             person.PhoneNumber = request.PhoneNumber;
-            person.Address = request.Address!;  
-            person.CountryId = request.CountryId;
             person.DateOfBirth = request.DateOfBirth;
+            person.CountryId = request.CountryId;
+            person.Name = request.Name!;
+            person.Id = request.PersonID; ;
 
-            await _context.SaveChangesAsync();
-
+            await _personsRepository.UpdatePerson(person);
 
             return person.ToPersonResponse();
 
@@ -232,13 +228,12 @@ namespace Services
             if (PersonID is null)
                 throw new ArgumentNullException(nameof(PersonID));
 
-            var person = await _context.Persons.FirstOrDefaultAsync(x => x.Id == PersonID);
+            var person = await _personsRepository.GetPersonByPersonID(PersonID.Value);
 
-            if(person is null)
+            if (person is null)
                 return false;
 
-            _context.Persons.Remove(person);
-           await  _context.SaveChangesAsync();
+            await _personsRepository.DeletePersonByPersonID(PersonID.Value);
             return true;
         }
 

@@ -12,7 +12,7 @@ namespace ServiceContracts
     {
         Task<CountryResponse> AddCountryAsync(CountryAddRequest? request);
 
-        Task<List<CountryResponse>> GetAllCountriesAsync();
+        Task<List<CountryResponse>?> GetAllCountriesAsync();
 
         Task<CountryResponse?> GetCountryByIdAsync(Guid? id);
 
