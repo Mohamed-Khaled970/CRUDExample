@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "E:\\API Projects\\CRUDSolution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|e:\\api projects\\crudsolution\\crudtests\\countriesservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|solutionrelative:crudtests\\countriesservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|e:\\api projects\\crudsolution\\crudtests\\personscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|solutionrelative:crudtests\\personscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{189CC967-5DB3-47F3-852B-95407BDCAB5B}|Services\\Services.csproj|e:\\api projects\\crudsolution\\services\\countriesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{189CC967-5DB3-47F3-852B-95407BDCAB5B}|Services\\Services.csproj|solutionrelative:services\\countriesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|e:\\api projects\\crudsolution\\crudtests\\personsservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8D6A832-ED44-4531-B7DE-98841E72534D}|CRUDTests\\CRUDTests.csproj|solutionrelative:crudtests\\personsservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15BFFD5C-3402-4D5F-824C-547BDCC9D1E6}|ServiceContracts\\ServiceContracts.csproj|e:\\api projects\\crudsolution\\servicecontracts\\icountriesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15BFFD5C-3402-4D5F-824C-547BDCC9D1E6}|ServiceContracts\\ServiceContracts.csproj|solutionrelative:servicecontracts\\icountriesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{189CC967-5DB3-47F3-852B-95407BDCAB5B}|Services\\Services.csproj|e:\\api projects\\crudsolution\\services\\personsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{189CC967-5DB3-47F3-852B-95407BDCAB5B}|Services\\Services.csproj|solutionrelative:services\\personsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA2A8852-B590-4A27-8B83-08D9ACFA392F}|CRUDExample\\CRUDExample.csproj|E:\\API Projects\\CRUDSolution\\crudexample\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA2A8852-B590-4A27-8B83-08D9ACFA392F}|CRUDExample\\CRUDExample.csproj|solutionrelative:crudexample\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,73 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICountriesService.cs",
-              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\ServiceContracts\\ICountriesService.cs",
-              "RelativeDocumentMoniker": "ServiceContracts\\ICountriesService.cs",
-              "ToolTip": "E:\\API Projects\\CRUDSolution\\ServiceContracts\\ICountriesService.cs",
-              "RelativeToolTip": "ServiceContracts\\ICountriesService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAuwA4AAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T23:06:25.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PersonsService.cs",
-              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\Services\\PersonsService.cs",
-              "RelativeDocumentMoniker": "Services\\PersonsService.cs",
-              "ToolTip": "E:\\API Projects\\CRUDSolution\\Services\\PersonsService.cs",
-              "RelativeToolTip": "Services\\PersonsService.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAIAxwDEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T22:29:37.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PersonsServiceTest.cs",
-              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\CRUDTests\\PersonsServiceTest.cs",
-              "RelativeDocumentMoniker": "CRUDTests\\PersonsServiceTest.cs",
-              "ToolTip": "E:\\API Projects\\CRUDSolution\\CRUDTests\\PersonsServiceTest.cs",
-              "RelativeToolTip": "CRUDTests\\PersonsServiceTest.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAiwIUAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T22:22:07.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CountriesServiceTest.cs",
-              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\CRUDTests\\CountriesServiceTest.cs",
-              "RelativeDocumentMoniker": "CRUDTests\\CountriesServiceTest.cs",
-              "ToolTip": "E:\\API Projects\\CRUDSolution\\CRUDTests\\CountriesServiceTest.cs",
-              "RelativeToolTip": "CRUDTests\\CountriesServiceTest.cs",
-              "ViewState": "AQIAAKcAAAAAAAAAAAAiwKcAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T22:39:57.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CountriesService.cs",
-              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\Services\\CountriesService.cs",
-              "RelativeDocumentMoniker": "Services\\CountriesService.cs",
-              "ToolTip": "E:\\API Projects\\CRUDSolution\\Services\\CountriesService.cs",
-              "RelativeToolTip": "Services\\CountriesService.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAEBAwDsAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T22:44:29.525Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -120,6 +43,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonController.cs",
+              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\CRUDExample\\Controllers\\PersonController.cs",
+              "RelativeDocumentMoniker": "CRUDExample\\Controllers\\PersonController.cs",
+              "ToolTip": "E:\\API Projects\\CRUDSolution\\CRUDExample\\Controllers\\PersonController.cs",
+              "RelativeToolTip": "CRUDExample\\Controllers\\PersonController.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAcwD4AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:40:22.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonsControllerTest.cs",
+              "DocumentMoniker": "E:\\API Projects\\CRUDSolution\\CRUDTests\\PersonsControllerTest.cs",
+              "RelativeDocumentMoniker": "CRUDTests\\PersonsControllerTest.cs",
+              "ToolTip": "E:\\API Projects\\CRUDSolution\\CRUDTests\\PersonsControllerTest.cs",
+              "RelativeToolTip": "CRUDTests\\PersonsControllerTest.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAIA0wHIAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:40:15.968Z",
+              "EditorCaption": ""
             }
           ]
         }
