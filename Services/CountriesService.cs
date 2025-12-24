@@ -44,7 +44,7 @@ namespace Services
             var countries = await _countriesRepository.GetAllCountries();
 
             if (countries.Count() <= 0)
-                return null;
+                return new List<CountryResponse>();
 
 
             return  countries.Select(c => c.ToCountryResponse()).ToList();
